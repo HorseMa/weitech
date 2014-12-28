@@ -47,9 +47,10 @@ const struct sensors_sensor *sensors[] = {
 #endif
 #if BUTTON_SENSOR_ON
   &button_1_sensor,
-#if MODELS_CONF_CC2531_USB_STICK
+#if 1//MODELS_CONF_CC2531_USB_STICK
   &button_2_sensor,
 #endif
+  &button_3_sensor,
 #endif
   0
 };

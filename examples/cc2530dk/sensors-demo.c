@@ -97,11 +97,19 @@ PROCESS_THREAD(buttons_test_process, ev, data)
 
     /* If we woke up after a sensor event, inform what happened */
     sensor = (struct sensors_sensor *)data;
-    if(sensor == &button_sensor) {
-      PRINTF("Button Press\n");
+    if(sensor == &button_1_sensor) {
+      PRINTF("Button1 Press\n");
       leds_toggle(LEDS_GREEN);
     }
-  }
+    if(sensor == &button_2_sensor) {
+        PRINTF("Button2 Press\n");
+        leds_toggle(LEDS_GREEN);  
+    }       
+    if(sensor == &button_3_sensor) {
+        PRINTF("Button3 Press\n");
+        leds_toggle(LEDS_GREEN);  
+    }        
+  }     
 
   PROCESS_END();
 }

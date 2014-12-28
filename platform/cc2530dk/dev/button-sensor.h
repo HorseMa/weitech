@@ -54,11 +54,13 @@
  * B2: P1_3
  *
  */
-#if MODELS_CONF_CC2531_USB_STICK
+#if 1 //MODELS_CONF_CC2531_USB_STICK
 #define BUTTON1_PORT 1
 #define BUTTON1_PIN  2
 #define BUTTON2_PORT 1
 #define BUTTON2_PIN  3
+#define BUTTON3_PORT 0
+#define BUTTON3_PIN  6
 #else
 #define BUTTON1_PORT 0
 #define BUTTON1_PIN  1
@@ -68,19 +70,23 @@
 #define BUTTON_SENSOR_ON BUTTON_SENSOR_CONF_ON
 #endif /* BUTTON_SENSOR_CONF_ON */
 
-#define button_sensor button_1_sensor
+//#define button_sensor button_1_sensor
 extern const struct sensors_sensor button_1_sensor;
 extern const struct sensors_sensor button_2_sensor;
+extern const struct sensors_sensor button_3_sensor;
 
 #if BUTTON_SENSOR_ON
-#if MODELS_CONF_CC2531_USB_STICK
+#if 1//MODELS_CONF_CC2531_USB_STICK
 /* USB Dongle */
 /* Buttons: P1_2 & P1_3 - Port 1 ISR needed */
 void port_1_isr(void) __interrupt(P1INT_VECTOR);
 #define   BUTTON_SENSOR_ACTIVATE() do { \
     button_1_sensor.configure(SENSORS_ACTIVE, 1); \
     button_2_sensor.configure(SENSORS_ACTIVE, 1); \
+    button_3_sensor.configure(SENSORS_ACTIVE, 1); \
 } while(0)
+
+void port_0_isr(void) __interrupt(P0INT_VECTOR);
 
 #else /* MODELS_CONF_CC2531_USB_STICK */
 /* SmartRF */

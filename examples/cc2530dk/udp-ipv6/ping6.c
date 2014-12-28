@@ -114,7 +114,7 @@ PROCESS_THREAD(ping6_process, ev, data)
     PROCESS_YIELD();
 
 #if BUTTON_SENSOR_ON
-    if(ev == sensors_event && data == &button_sensor && count == 0) {
+    if(ev == sensors_event && data == &button_1_sensor && count == 0) {
       ping6handler();
     }
 #endif

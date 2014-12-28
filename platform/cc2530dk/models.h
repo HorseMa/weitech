@@ -90,27 +90,29 @@
 #define LEDS_GREEN    2
 
 /* H/W Connections */
-#define LED2_PIN   P0_0
-#define LED1_PIN   P1_1
+#define LED2_PIN   P0_7
+#define LED1_PIN   P0_5
+#define LED3_PIN   P2_0
 
 /* P0DIR and P0SEL masks */
-#define LED2_MASK  0x01
-#define LED1_MASK  0x02
+#define LED3_MASK  (0x01 << 0)
+#define LED2_MASK  (0x01 << 7)
+#define LED1_MASK  (0x02 << 5)
 #else
 #define MODEL_STRING "TI SmartRF05 EB\n"
 #define LEDS_GREEN    1
 #define LEDS_RED      2
 
 /* H/W Connections */
-#define LED1_PIN   P1_0
-#define LED2_PIN   P1_1
-#define LED3_PIN   P1_4
+#define LED1_PIN   P0_5
+#define LED2_PIN   P0_7
+#define LED3_PIN   P2_0
 
 /* P0DIR and P0SEL masks */
-#define LED1_MASK  0x01
-#define LED2_MASK  0x02
-#define LED3_MASK  0x10
-#define LED4_MASK  0x02
+#define LED1_MASK  (0x01 << 5)
+#define LED2_MASK  (0x01 << 7)
+#define LED3_MASK  (0x01 << 0)
+#define LED4_MASK  (0x01 << 0)
 #endif
 /*---------------------------------------------------------------------------*/
 /* Buttons */

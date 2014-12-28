@@ -168,7 +168,7 @@ PROCESS_THREAD(udp_server_process, ev, data)
     if(ev == tcpip_event) {
       tcpip_handler();
 #if (BUTTON_SENSOR_ON && (DEBUG==DEBUG_PRINT))
-    } else if(ev == sensors_event && data == &button_sensor) {
+    } else if(ev == sensors_event && data == &button_1_sensor) {
       print_stats();
 #endif /* BUTTON_SENSOR_ON */
     }
