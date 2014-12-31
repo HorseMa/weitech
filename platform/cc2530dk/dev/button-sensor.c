@@ -199,7 +199,7 @@ port_1_isr(void) __interrupt(P1INT_VECTOR)
   if(BUTTON_IRQ_CHECK(2)) {
     if(timer_expired(&debouncetimer)) {
       timer_set(&debouncetimer, CLOCK_SECOND / 8);
-#if 0//CC2531_CONF_B2_REBOOTS
+#if CC2531_CONF_B2_REBOOTS
       watchdog_reboot();
 #else /* General Purpose */
       sensors_changed(&button_2_sensor);
